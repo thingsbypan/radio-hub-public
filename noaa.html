@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; media-src https: http:; connect-src 'self' https://api.weather.gov https://api.zippopotam.us https://api.rainviewer.com; img-src 'self' data: https://cdn.star.nesdis.noaa.gov https://tilecache.rainviewer.com https://tile.openstreetmap.org; base-uri 'none'; form-action 'none'">
+<title>NOAA Weather Desk - Radio Hub</title><link rel="stylesheet" href="noaa.css">
+<link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+<link rel="stylesheet" href="dashboard/components.css"><link rel="stylesheet" href="dashboard/tabs.css">
+<script src="dashboard/components.js" defer></script><script src="dashboard/framework.js" defer></script>
+<script src="node_modules/lucide/dist/umd/lucide.js" defer></script><script src="node_modules/leaflet/dist/leaflet.js" defer></script><script src="radar.js" defer></script><script src="noaa-local.js" defer></script><script src="noaa.js" defer></script>
+<script src="dashboard/module-layout.js" defer></script><link rel="stylesheet" href="catch.css"><script src="catch-audio.js" defer></script><script src="catch-ui.js" defer></script></head><body data-module="noaa"><main>
+<header class="masthead"><div><h1>NOAA Weather Desk</h1><span id="directory-status">Loading nationwide directory...</span></div><span id="status" role="status">Ready</span></header>
+<section class="radio-bar" aria-label="Weather radio">
+<label>State<select id="state" disabled></select></label><label>Station<select id="station" disabled></select></label>
+<div class="frequency"><strong id="frequency">--</strong><span>MHz FM</span></div>
+<div class="audio-display"><audio id="audio" preload="none" hidden></audio><button id="audio-toggle" title="Pause audio" aria-label="Pause audio" disabled><i data-lucide="pause"></i></button><div class="audio-plot"><canvas id="audio-spectrum" aria-label="Live received audio frequency spectrum" role="img"></canvas><span id="audio-plot-status">Waiting for audio</span></div><button id="audio-mute" title="Mute audio" aria-label="Mute audio"><i data-lucide="volume-2"></i></button><input id="audio-volume" type="range" min="0" max="1" step="0.01" value="0.6" aria-label="Audio volume" title="Audio volume"></div><button id="reconnect" title="Reconnect audio" aria-label="Reconnect audio" disabled><i data-lucide="rotate-cw"></i></button>
+</section><div class="radio-meta"><span id="coverage"></span><span id="provider"></span></div><p id="error" role="alert" hidden></p>
+<div class="weather-grid"><section class="forecast-panel" aria-label="Local weather report">
+<header class="section-head"><h2>LOCAL FORECAST</h2><button id="refresh-weather" title="Refresh forecast" aria-label="Refresh forecast"><i data-lucide="refresh-cw"></i></button></header>
+<form id="zip-form"><label for="zip">US ZIP code</label><div class="zip-row"><input id="zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="30303" aria-label="US ZIP code" required><button title="Find forecast" aria-label="Find forecast"><i data-lucide="search"></i></button><button id="follow-station" type="button" title="Use radio station location" aria-label="Use radio station location"><i data-lucide="radio-tower"></i></button></div></form>
+<h3 id="weather-location">Atlanta, Georgia</h3><p id="weather-status" role="status">Loading forecast...</p><div id="forecast"></div>
+</section><section class="satellite-panel" aria-label="Weather map">
+<div class="map-mode" role="group" aria-label="Map view"><button id="radar-mode" aria-pressed="true">Radar</button><button id="satellite-mode" aria-pressed="false">Satellite</button></div>
+<div id="radar-view">
+<header class="section-head"><h2>PRECIPITATION RADAR</h2><div class="map-tools"><button id="radar-home" title="Continental US" aria-label="Continental US"><i data-lucide="globe"></i></button><button id="radar-local" title="Forecast location" aria-label="Forecast location"><i data-lucide="locate-fixed"></i></button><button id="radar-refresh" title="Refresh radar" aria-label="Refresh radar"><i data-lucide="refresh-cw"></i></button></div></header>
+<div id="radar-map" aria-label="Interactive precipitation radar map"></div>
+<div class="radar-timeline"><button id="radar-play" title="Pause radar" aria-label="Pause radar" disabled><i data-lucide="pause"></i></button><input id="radar-time" type="range" min="0" max="0" value="0" aria-label="Radar history time" disabled><time id="radar-clock">Loading...</time></div>
+<div class="radar-caption"><span id="radar-status" role="status">Loading radar history...</span><span>Past observations / not a forecast</span></div>
+</div>
+<div id="satellite-view" hidden>
+<header class="section-head"><h2>GOES SATELLITE</h2><div class="map-tools"><select id="satellite-region" aria-label="Satellite region"><option value="conus">Continental US</option><option value="east">Atlantic / Americas</option><option value="west">Pacific / Alaska / Hawaii</option></select><button id="refresh-map" title="Refresh satellite image" aria-label="Refresh satellite image"><i data-lucide="refresh-cw"></i></button><button id="expand-map" title="Expand satellite image" aria-label="Expand satellite image"><i data-lucide="maximize"></i></button></div></header>
+<div class="satellite-frame"><img id="satellite" alt="NOAA GOES GeoColor satellite weather map" hidden><p id="map-status" role="status">Loading satellite image...</p></div><p class="map-caption">GeoColor <span id="map-time"></span></p>
+</div></section></div>
+<footer><span>Feeds: NOAA Weather Radio Org / Forecast: NWS / Satellite: NOAA/NESDIS</span><span>Internet relays may be delayed or unavailable. Not an emergency alert service.</span></footer>
+</main><dialog id="map-dialog"><button id="close-map" title="Close satellite image" aria-label="Close satellite image"><i data-lucide="x"></i></button><img id="large-satellite" alt="Expanded NOAA satellite weather map"></dialog></body></html>

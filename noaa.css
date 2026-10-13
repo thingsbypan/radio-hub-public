@@ -1,0 +1,45 @@
+:root { color-scheme: dark; accent-color: #d3ac6e; font-family: "Segoe UI", Arial, sans-serif; font-size: 13px; }
+* { box-sizing: border-box; } body { margin: 0; background: #080808; color: #ddd; }
+main { height: 100dvh; padding: 16px 22px 10px; display: flex; flex-direction: column; gap: 10px; }
+h1 { font-size: 23px; font-weight: 600; margin: 0 0 3px; } h2 { font-size: 12px; margin: 0; color: #aaa; } h3 { font-size: 18px; margin: 16px 0 4px; } p { margin: 6px 0; }
+.masthead,.section-head,.radio-meta,footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.masthead { border-bottom: 1px solid #303030; padding-bottom: 10px; }
+#directory-status,.radio-meta,.map-caption,footer { color: #929292; font-size: 11px; } #status { color: #d3ac6e; }
+.radio-bar { display: grid; grid-template-columns: 170px minmax(180px,1fr) 116px minmax(220px,1fr) 36px; align-items: end; gap: 12px; }
+label { display: block; color: #aaa; font-size: 12px; }
+select,input { display: block; width: 100%; min-width: 0; margin-top: 5px; height: 36px; padding: 0 8px; background: #202020; color: #eee; border: 1px solid #444; border-radius: 4px; font: inherit; }
+button { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 36px; height: 36px; padding: 7px; background: #252525; color: #ddd; border: 1px solid #444; border-radius: 4px; cursor: pointer; }
+button:hover { background: #353535; } button:disabled { opacity: .4; cursor: default; } button:focus-visible,select:focus-visible,input:focus-visible { outline: 2px solid #d3ac6e; outline-offset: 2px; } svg { width: 18px; height: 18px; }
+.frequency { display: flex; flex-direction: column; padding-bottom: 2px; } .frequency strong { font: 23px Consolas, monospace; color: #edc582; } .frequency span { color: #999; font-size: 11px; }
+audio { width: 100%; height: 36px; } #error { color: #eda69d; margin: 0; }
+.weather-grid { display: grid; grid-template-columns: minmax(275px,.85fr) minmax(0,2fr); gap: 22px; flex: 1; min-height: 0; border-top: 1px solid #303030; padding-top: 10px; }
+.forecast-panel { overflow-y: auto; padding-right: 12px; } .section-head { min-height: 36px; margin-bottom: 6px; } .zip-row { display: flex; align-items: end; gap: 7px; } .zip-row input { flex: 1; }
+#weather-status { color: #aaa; font-size: 12px; } .forecast-period { border-top: 1px solid #292929; padding: 9px 0; } .forecast-period header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; } .forecast-period strong { font: 23px Consolas, monospace; color: #8cb9c1; } .forecast-period p { line-height: 1.45; } .forecast-period small { color: #aaa; }
+.satellite-panel { min-height: 0; display: flex; flex-direction: column; } .map-tools { display: flex; align-items: center; gap: 6px; } .map-tools select { margin: 0; max-width: 210px; }
+.satellite-frame { position: relative; flex: 1; min-height: 0; background: #000; display: grid; place-items: center; } #satellite { width: 100%; height: 100%; min-height: 0; object-fit: contain; position: absolute; inset: 0; } #map-status { z-index: 1; padding: 12px; background: #111; color: #aaa; }
+.map-caption { display: flex; justify-content: space-between; gap: 8px; } footer { border-top: 1px solid #303030; padding-top: 8px; flex-wrap: wrap; font-size: 10px; } [hidden] { display: none !important; }
+dialog { width: 96vw; height: 94dvh; max-width: none; max-height: none; background: #080808; border: 1px solid #555; padding: 40px 8px 8px; } dialog::backdrop { background: #000b; } dialog img { width: 100%; height: 100%; object-fit: contain; } #close-map { position: absolute; right: 6px; top: 4px; }
+@media(max-width:900px) { .radio-bar { grid-template-columns: 140px minmax(120px,1fr) 110px; } audio { grid-column: span 2; } .weather-grid { gap: 12px; grid-template-columns: minmax(240px,1fr) minmax(0,1.3fr); } .section-head { flex-wrap: wrap; } }
+@media(max-width:600px) { main { height: auto; min-height: 100dvh; padding: 12px; } .radio-bar { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .frequency { grid-column: 1; } audio { grid-column: 1; } .weather-grid { display: flex; flex-direction: column-reverse; } .satellite-frame { flex: none; height: 280px; } .forecast-panel { overflow: visible; } .radio-meta { flex-wrap: wrap; } h1 { font-size: 20px; } }
+.map-mode { display: flex; gap: 4px; margin-bottom: 5px; }
+.map-mode button { width: auto; padding: 0 14px; height: 30px; }
+.map-mode button[aria-pressed="true"] { border-color: #a28556; background: #302a20; color: #edc582; }
+#radar-view,#satellite-view { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+#radar-map { flex: 1; min-height: 150px; background: #161b1d; }
+.radar-timeline { display: flex; align-items: center; gap: 10px; padding-top: 8px; }
+.radar-timeline input { flex: 1; margin: 0; padding: 0; height: 24px; }
+#radar-clock { min-width: 130px; text-align: right; font: 12px Consolas, monospace; color: #ddd; }
+.radar-caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px; font-size: 10px; color: #aaa; margin-top: 6px; }
+.leaflet-container { font-family: "Segoe UI",sans-serif; color-scheme: light; }
+.leaflet-container .leaflet-control-attribution { background: #151515dd; color: #bbb; font-size: 9px; }
+.leaflet-control-attribution a { color: #b6d4e1; }
+@media(max-width:600px) { #radar-map { flex: none; height: 300px; } }
+.radio-bar { grid-template-columns: 150px minmax(160px,1fr) 116px minmax(290px,1.35fr) 36px; }
+.audio-display { display: flex; align-items: center; gap: 6px; height: 44px; min-width: 0; }
+.audio-display button { width: 30px; height: 36px; padding: 5px; }
+.audio-plot { position: relative; flex: 1; height: 44px; min-width: 65px; background: #101718; border-bottom: 1px solid #395155; }
+#audio-spectrum { width: 100%; height: 100%; display: block; }
+#audio-plot-status { position: absolute; inset: 0; display: grid; place-items: center; color: #a3b7bb; font-size: 10px; text-align: center; pointer-events: none; }
+#audio-volume { width: 65px; height: 24px; padding: 0; margin: 0; flex-shrink: 0; }
+@media(max-width:1000px) { .radio-bar { grid-template-columns: 150px minmax(140px,1fr) 116px; } .audio-display { grid-column: span 2; } }
+@media(max-width:600px) { .radio-bar { grid-template-columns: minmax(0,1fr) minmax(0,1fr); } .audio-display { grid-column: span 2; } }

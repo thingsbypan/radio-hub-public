@@ -1,0 +1,17 @@
+node_modules/
+dist/
+release/
+release-checks/
+Website-Download/
+.codex-remote-attachments/
+.env
+.env.*
+!.env.example
+*.log
+*.pfx
+*.p12
+*.pem
+*.key
+*.cer
+Thumbs.db
+Desktop.ini

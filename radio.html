@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https: http:; media-src https: http: blob:; img-src https: http: data:; worker-src blob:; base-uri 'none'; form-action 'none'">
+  <title>AM/FM &amp; Internet Radio - Radio Hub</title>
+  <link rel="stylesheet" href="radio.css">
+  <link rel="stylesheet" href="dashboard/components.css"><link rel="stylesheet" href="dashboard/tabs.css">
+<script src="dashboard/components.js" defer></script><script src="dashboard/framework.js" defer></script>
+<script src="node_modules/lucide/dist/umd/lucide.js" defer></script>
+  <script src="node_modules/hls.js/dist/hls.min.js" defer></script>
+  <script src="radio.js" defer></script>
+<script src="dashboard/module-layout.js" defer></script><link rel="stylesheet" href="catch.css"><script src="catch-audio.js" defer></script><script src="catch-ui.js" defer></script></head>
+<body data-module="radio">
+  <main>
+    <header class="topbar">
+      <div><h1>AM/FM Radio</h1><span class="subtitle">AM/FM &amp; internet stations</span></div>
+      <div class="views" role="group" aria-label="Station list">
+        <button id="browse" type="button" aria-pressed="true">Browse</button>
+        <button id="favorites" type="button" aria-pressed="false"><i data-lucide="star"></i>Favorites</button>
+      </div>
+    </header>
+    <form id="filters">
+      <label>Country<select id="country"><option value="US">United States</option><option value="">Worldwide</option></select></label>
+      <label>State / region<select id="region"><option value="">All regions</option><option value="Georgia" selected>Georgia</option></select></label>
+      <button class="icon-button" id="save-default" type="button" title="Save this region as default" aria-label="Save this region as default"><i data-lucide="bookmark-plus"></i></button>
+      <label class="search-label">Station<input id="search" type="search" placeholder="Name or call sign" maxlength="100"></label>
+      <button class="icon-button" type="submit" title="Search stations" aria-label="Search stations"><i data-lucide="search"></i></button>
+    </form>
+    <div class="list-status"><span id="results-status" role="status">Loading directory...</span><span id="default-label"></span></div>
+    <div class="directory" id="directory" aria-label="Stations">
+      <div id="station-list" role="list"></div>
+      <div id="empty" hidden></div>
+      <button id="retry-directory" type="button" hidden><i data-lucide="refresh-cw"></i>Retry directory</button>
+      <button id="load-more" type="button" hidden>Load more stations</button>
+    </div>
+    <section class="player" aria-label="Now playing">
+      <div class="now-playing"><div id="now-logo" class="logo large"></div><div class="now-copy"><h2 id="now-name">No station selected</h2><p id="now-location">Internet radio</p><span id="playback-status" role="status">Ready</span></div></div>
+      <div class="transport"><audio id="audio" preload="none" hidden></audio><button id="audio-toggle" class="icon-button" title="Play audio" aria-label="Play audio" disabled><i data-lucide="play"></i></button><div class="audio-plot"><canvas id="audio-spectrum" role="img" aria-label="Live received audio frequency spectrum"></canvas><span id="audio-plot-status">No station selected</span></div><button id="audio-mute" class="icon-button" title="Mute audio" aria-label="Mute audio"><i data-lucide="volume-2"></i></button><input id="audio-volume" type="range" min="0" max="1" step="0.01" value="0.6" title="Audio volume" aria-label="Audio volume"><button id="reconnect" class="icon-button" type="button" title="Reconnect station" aria-label="Reconnect station" disabled><i data-lucide="refresh-cw"></i></button></div>
+      <p id="playback-error" role="alert" hidden></p>
+    </section>
+    <footer><span>Station directory: Radio Browser</span><span>Online streams / availability varies by broadcaster</span></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.catch-controls { display:grid;grid-template-columns:auto auto;align-items:center;gap:4px 8px;position:relative;flex:0 0 auto;max-width:310px; }
+.catch-controls button,.catch-note button,.catch-library button { width:auto;height:32px;flex-shrink:0;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;background:#202020;color:#ddd;border:1px solid #555;border-radius:3px;font:12px 'Segoe UI',sans-serif;cursor:pointer; }
+.catch-controls .catch-trigger { background:#35291a;color:#edc582;border-color:#9d7847;font-weight:700;white-space:nowrap; }
+.catch-controls button:disabled { opacity:.6;cursor:wait; }
+.catch-controls .catch-status { grid-column:1/-1;flex:none;font:10px 'Segoe UI',sans-serif;color:#c5b088;max-width:310px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
+.catch-note { position:fixed;top:58px;right:22px;z-index:1001;background:#161616;border:1px solid #826b48;padding:8px;min-width:280px;box-shadow:0 3px 12px #000;display:flex;align-items:center;gap:8px; }
+.catch-note[hidden] { display:none; }
+.catch-note label { display:block;font:12px 'Segoe UI',sans-serif;color:#ccc; }
+.catch-note input { display:block;width:280px;box-sizing:border-box;padding:6px;margin:4px 0 0;background:#050505;color:#eee;border:1px solid #555; }
+.catch-library { background:#080808;color:#ddd;font:14px 'Segoe UI',sans-serif;margin:0;padding:24px; }
+.catch-library h1 { color:#edc582;font-size:24px; }
+.catch-library header { display:flex;gap:14px;align-items:center;flex-wrap:wrap; }
+.catch-library article { border:1px solid #333;background:#151515;padding:16px;margin:14px 0; }
+.catch-library h2 { font-size:16px;color:#edc582;margin:0 0 8px; }
+.catch-library p { white-space:pre-wrap;overflow-wrap:anywhere; }
+.catch-library .actions { display:flex;gap:8px;flex-wrap:wrap;align-items:center; }
+.catch-library audio { height:34px;max-width:280px; }
+.catch-library textarea { display:block;width:100%;max-width:600px;background:#080808;color:#eee;border:1px solid #555;padding:8px;margin:8px 0; }
+@media(max-width:1100px) { .hf-toolbar select { width:240px; } }

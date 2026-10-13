@@ -1,0 +1,17 @@
+.echo-status { display: inline-flex; align-items: center; gap: 7px; color: #9b9b9b; font-size: 11px; }
+.echo-status::before { content: ''; width: 6px; height: 6px; background: #777; border-radius: 50%; }
+.echo-status[data-state="live"] { color: #a9c9b3; } .echo-status[data-state="live"]::before { background: #8bb89a; }
+.echo-status[data-state="stale"],.echo-status[data-state="loading"] { color: #d3ac6e; }
+.echo-status[data-state="error"] { color: #e5a298; }
+.echo-metric { padding: 11px 0; border-bottom: 1px solid #252a2b; min-width: 0; }
+.echo-metric-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.echo-metric-label { color: #bcbcbc; font-size: 12px; }
+.echo-metric-value { font: 20px Consolas, monospace; color: #b7d3d8; white-space: nowrap; }
+.echo-metric-note { display: block; color: #858585; font-size: 10px; margin-top: 5px; }
+.echo-metric[data-state="stale"] .echo-metric-value { color: #d3ac6e; }
+.echo-meter { display: block; width: 100%; height: 5px; margin-top: 8px; }
+.echo-meter::-webkit-meter-bar { background: #252a2b; border: 0; } .echo-meter::-webkit-meter-optimum-value { background: #8cb9c1; }
+.echo-history-frame { position: relative; height: 115px; min-width: 0; background: #0b1011; }
+.echo-history { display: block; width: 100%; height: 100%; }
+.echo-history-empty { position: absolute; inset: 0; display: grid; place-items: center; color: #888; font-size: 11px; }
+[hidden] { display: none !important; }

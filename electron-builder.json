@@ -1,0 +1,42 @@
+{
+  "appId": "com.echobase.radioterminal",
+  "productName": "Radio Hub",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "*.js",
+    "*.html",
+    "*.css",
+    "dashboard/**/*",
+    "noaa-stations.json",
+    "package.json",
+    "THIRD-PARTY-NOTICES.txt",
+    "README.md",
+    "LICENSE"
+  ],
+  "asar": true,
+  "npmRebuild": false,
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "Radio-Hub-Setup-${version}-${arch}.${ext}",
+    "icon": "assets/radio-hub.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowElevation": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Radio Hub",
+    "deleteAppDataOnUninstall": false
+  }
+}

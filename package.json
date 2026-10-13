@@ -1,0 +1,26 @@
+{
+  "name": "radio-hub",
+  "version": "1.2.1",
+  "description": "Radio Hub internet radio and weather monitoring terminal",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win nsis --x64 --publish never",
+    "test": "node --test tests/dashboard.test.js tests/catch.test.js tests/noaa.test.js tests/hf-downloads.test.js"
+  },
+  "keywords": [],
+  "author": "Pan / Things by Pan",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "acorn": "^8.18.0",
+    "cheerio": "^1.2.0",
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "hls.js": "^1.7.3",
+    "leaflet": "^1.9.4",
+    "lucide": "^1.49.0"
+  }
+}

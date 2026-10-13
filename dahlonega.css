@@ -1,0 +1,59 @@
+/* Injected only into Dahlonega's UberSDR receiver by hf-host.js. */
+:root {
+  color-scheme: dark;
+  --page-bg: #080808 !important; --panel-dark: #141414 !important;
+  --panel-mid: #202020 !important; --accent: #d3ac6e !important;
+  --accent-end: #a28556 !important; --control-text: #bbb !important;
+  --text-light: #ddd !important; --waterfall-controls-opacity: 1 !important;
+}
+html, body { margin: 0 !important; background: #080808 !important; color: #ddd; font-family: 'Segoe UI', Arial, sans-serif !important; }
+body { overflow-x: hidden; }
+.container { overflow: visible !important; }
+#dock-overlay-wrapper { position: static !important; transform: none !important; width: 100% !important; max-width: none !important; background: #080808 !important; padding: 0 !important; margin: 0 !important; }
+.wt-overlay, .wt-spotlight, .wt-card { display: none !important; }
+.spectrum-display-container { height: var(--radiohub-spectrum-height, clamp(120px, calc(100dvh - 330px), 560px)) !important; min-height: 120px !important; overflow: hidden; }
+.spectrum-display-controls { background: #151515 !important; box-shadow: none !important; padding: 4px 8px !important; font-size: 11px !important; border-bottom: 1px solid #333; }
+.spectrum-display-panel { padding-bottom: 0 !important; }
+.waterfall-resize-handle { display: none !important; }
+.band-status-bar { background: #101010 !important; padding: 4px 10px !important; }
+.band-buttons-container { gap: 5px !important; }
+.band-status-badge { background: #202020 !important; color: #ccc !important; border: 1px solid #444 !important; padding: 5px 10px !important; border-radius: 3px !important; font-size: 12px !important; box-shadow: none !important; }
+.band-status-badge.active { background: #302a20 !important; color: #edc582 !important; border-color: #a28556 !important; }
+.controls { width: calc(100% - 24px) !important; max-width: 1120px; margin: 0 auto !important; padding: 8px 0 !important; transform: none !important; grid-template-columns: minmax(240px, 1fr) minmax(235px, 1fr) minmax(240px, .95fr) !important; gap: 16px !important; font-size: 12px !important; }
+.controls > .control-group { padding: 0 !important; }
+.controls label { font-size: 11px !important; margin-bottom: 3px !important; }
+.controls button, .audio-controls button, .spectrum-display-controls button, .band-buttons-container button { background: #252525 !important; color: #ddd !important; border: 1px solid #444 !important; border-radius: 3px !important; box-shadow: none !important; text-shadow: none !important; }
+.controls button { font-size: 12px !important; padding: 4px 7px !important; min-height: 26px; }
+.controls .mode-btn.active, .audio-controls button.active { background: #302a20 !important; border-color: #a28556 !important; color: #edc582 !important; }
+.controls select, .controls input[type=text], .audio-controls select { background: #202020 !important; color: #ddd !important; border: 1px solid #444 !important; font-size: 12px !important; padding: 4px 6px !important; }
+.controls .preset-buttons { gap: 4px !important; }
+.controls .preset-buttons .mode-btn { min-width: 0 !important; flex: 1; }
+.controls .frequency-input-wrapper { width: 140px !important; }
+.frequency-unit { color: #aaa !important; }
+input[type=range], input[type=checkbox] { accent-color: #d3ac6e; }
+.smeter-charts-panel { max-width: 160px; }
+.s-meter-container, #s-meter-readout-bar { background: #141414 !important; }
+.smeter-left { transform: scale(.8); transform-origin: top center; margin-bottom: -38px; }
+.audio-controls { width: calc(100% - 24px) !important; max-width: 1120px; margin: 0 auto !important; padding: 6px 0 10px !important; gap: 10px !important; font-size: 12px !important; flex-wrap: wrap !important; background: #080808 !important; }
+.audio-controls button { padding: 5px 9px !important; font-size: 12px !important; }
+.audio-controls label { color: #bbb !important; }
+.audio-visualization-section, .audio-controls-section, .active-channels-panel { background: #141414 !important; color: #ddd !important; border-color: #333 !important; }
+#audio-start-overlay { background: #080808 !important; backdrop-filter: none !important; }
+#audio-start-overlay .audio-start-content { max-width: 400px; gap: 18px; padding: 24px; text-align: center; }
+#audio-start-overlay .audio-start-content::before { content: 'DAHLONEGA / GEORGIA'; color: #edc582; font: 600 20px 'Segoe UI', sans-serif; letter-spacing: 1px; }
+#audio-start-overlay .audio-start-content::after { content: 'Start listening to the live HF receiver'; color: #999; font: 13px 'Segoe UI', sans-serif; }
+#audio-start-button { width: 260px !important; min-height: 52px; padding: 12px 18px !important; border: 1px solid #a28556 !important; border-radius: 4px !important; background: #302a20 !important; flex-direction: row !important; justify-content: center; box-shadow: none !important; transform: none !important; }
+#audio-start-button { background-color: #302a20 !important; background-image: none !important; transition: none !important; animation: none !important; }
+.controls button, .controls select, .controls input, .audio-controls, .band-status-badge, .spectrum-display-controls { font-family: 'Segoe UI', Arial, sans-serif !important; }
+#audio-start-button span { font: 600 15px 'Segoe UI', sans-serif !important; text-shadow: none !important; }
+#audio-start-button svg { width: 22px !important; height: 22px !important; filter: none !important; }
+#audio-start-button #receiver-callsign { display: none !important; }
+#audio-start-button:disabled { opacity: .65; cursor: wait; }
+#site-description, #audio-start-overlay .overlay-buttons-container, #firefox-suggestion-toast, #aviz-widget, #time-display, #space-weather-display, .site-footer { display: none !important; }
+#audio-buffer-display { bottom: 3px !important; right: 3px !important; }
+@media(max-width: 850px) {
+  .controls { grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 10px !important; }
+  .smeter-control-group { grid-column: 1 / -1; }
+  .smeter-left { transform: none; margin-bottom: 0; }
+  .spectrum-display-container { height: 220px !important; }
+}
